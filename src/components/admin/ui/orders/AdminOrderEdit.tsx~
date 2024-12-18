@@ -1,0 +1,65 @@
+import React, { useState, useEffect } from 'react';
+import { FaArrowLeft } from 'react-icons/fa';
+import { useNavigate, useParams } from 'react-router-dom';
+import '../../../../styles/admin/components/orders/AdminOrderEdit.css';
+
+const AdminOrderEdit: React.FC = () => {
+    const navigate = useNavigate();
+    const { id } = useParams(); // Get order ID from URL
+    const [customerName, setCustomerName] = useState('');
+    const [productList, setProductList] = useState('');
+    const [status, setStatus] = useState('Pending');
+
+    useEffect(() => {
+        const fetchedOrder = {
+            id: 1,
+            customerName: 'Customer 1',
+            productList: 'Product 1, Product 2',
+            status: 'Processing',
+        };
+
+        if (fetchedOrder.id.toString() === id) {
+            setCustomerName(fetchedOrder.customerName);
+            setProductList(fetchedOrder.productList);
+            setStatus(fetchedOrder.status);
+        }
+    }, [id]);
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log({ customerName, productList, status });
+
+        navigate('/admin/orders/list'); // Navigate to orders list
+    };
+
+    return (
+        <div className="order-edit">
+            <h2>Edit Order</h2>
+            <button className="btn_back_list" onClick={() => navigate('/admin/orders')}>
+                <FaArrowLeft className="back-arrow" /> Back
+            </button>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="Customer Name"
+                    value={customerName}
+                    onChange={(e) => setCustomerName(e.target.value)}
+                />
+                <textarea
+                    placeholder="Product List"
+                    value={productList}
+                    onChange={(e) => setProductList(e.target.value)}
+                />
+                <select value={status} onChange={(e) => setStatus(e.target.value)}>
+                    <option value="Pending">Pending</option>
+                    <option value="Processing">Processing</option>
+                    <option value="Shipped">Shipped</option>
+                    <option value="Delivered">Delivered</option>
+                </select>
+                <button type="submit">Update Order</button>
+            </form>
+        </div>
+    );
+};
+
+export default AdminOrderEdit;

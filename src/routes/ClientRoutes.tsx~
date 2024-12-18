@@ -1,0 +1,22 @@
+import { Routes, Route, Navigate } from 'react-router-dom';
+import ClientLayout from "../layouts/ClientLayout.tsx";
+import Home from "../pages/client/HomePage.tsx";
+
+
+
+const ClientRoutes = () => {
+    return (
+        <Routes>
+            <Route element={<ClientLayout />}>
+                {/* Home route */}
+                <Route index element={<Home />} />
+                <Route path="/" element={<Home />} />
+
+                {/* Catch all route - redirect to home */}
+                <Route path="*" element={<Navigate to="/" replace />} />
+            </Route>
+        </Routes>
+    );
+};
+
+export default ClientRoutes;

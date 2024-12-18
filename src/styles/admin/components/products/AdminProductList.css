@@ -1,0 +1,163 @@
+/* Admin Product List Styles */
+.product-list {
+    max-width: 100%;
+    background-color: var(--background-color);
+    border: 1px solid #FFB3C6FF;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: all 0.3s ease;
+    overflow-x: auto;
+}
+
+/* Heading style */
+.product-list h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Button to add a new product */
+.product-list .btn-add {
+    background-color: var(--primary-color);
+    color: var(--dark-text-color);
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+/* Table styles */
+.product-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+    table-layout: fixed; /* Fixed table layout for better control */
+}
+
+.product-list th,
+.product-list td {
+    padding: 12px;
+    text-align: left;
+    font-size: 1rem;
+    border: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+/* Cell Content Handling */
+.product-list td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Product Image */
+.product-list td img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Header Styles */
+.product-list th {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* Action buttons in the table */
+.product-list td .actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-list td .actions button {
+    background-color: var(--primary-color);
+    color: var(--dark-text-color);
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+/* Specific column widths */
+.product-list th:nth-child(1),
+.product-list td:nth-child(1) {
+    width: 5%;
+}
+
+.product-list th:nth-child(2),
+.product-list td:nth-child(2) {
+    width: 20%;
+}
+
+.product-list th:nth-child(3),
+.product-list td:nth-child(3) {
+    width: 10%;
+}
+
+.product-list th:nth-child(4),
+.product-list td:nth-child(4) {
+    width: 5%;
+}
+
+.product-list th:nth-child(5),
+.product-list td:nth-child(5) {
+    width: 7%;
+}
+
+.product-list th:nth-child(6),
+.product-list td:nth-child(6) {
+    width: 30%;
+}
+
+.product-list th:nth-child(7),
+.product-list td:nth-child(7) {
+    width: 10%;
+}
+
+.product-list th:nth-child(8),
+.product-list td:nth-child(8) {
+    max-width: 100%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .product-list {
+        padding: 15px;
+    }
+
+    .product-list th,
+    .product-list td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .product-list td img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .product-list td .actions button {
+        padding: 6px 12px;
+    }
+}
+
+/* Loading and Error States */
+.error-message {
+    color: var(--dark-text-color);
+    padding: 15px;
+    border: 1px solid var(--background-color);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: var(--primary-color);
+}

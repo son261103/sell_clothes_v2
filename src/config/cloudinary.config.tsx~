@@ -1,0 +1,20 @@
+export const CLOUDINARY_CONFIG = {
+    CLOUD_NAME: 'dzeiafgu0',
+    API_KEY: '762754242175999',
+    API_SECRET: 'YPaOQMs-SoQJyUkICyy2LDTisK8',
+    API_URL: `CLOUDINARY_URL=cloudinary://762754242175999:YPaOQMs-SoQJyUkICyy2LDTisK8@dzeiafgu0`
+};
+
+export interface CloudinaryResponse {
+    secure_url: string;
+    public_id: string;
+    asset_id: string;
+    version_id: string;
+}
+
+export interface CloudinaryUploadOptions {
+    public_id?: string;
+    folder?: string;
+    transformation?: string[];
+    tags?: string[];
+}

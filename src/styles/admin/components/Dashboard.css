@@ -1,0 +1,27 @@
+.dashboard {
+    margin-top: 1rem;
+}
+
+.stat-card {
+    background-color: var(--background-color);
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card .card-title {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}

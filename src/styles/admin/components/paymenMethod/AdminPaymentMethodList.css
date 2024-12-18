@@ -1,0 +1,118 @@
+/* General Styles */
+.payment-method-list {
+    max-width: 100%;
+    background-color: var(--background-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: all 0.3s ease;
+    overflow-x: auto;
+}
+
+.payment-method-list h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.payment-method-list .btn-add {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: var(--background-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+/* Table Styles */
+.payment-method-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+    table-layout: fixed; /* Fixed table layout for better control */
+}
+
+.payment-method-list th,
+.payment-method-list td {
+    padding: 12px;
+    text-align: left;
+    font-size: 1rem;
+    border: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+    overflow: hidden; /* Hide overflow content */
+}
+
+/* Cell Content Handling */
+.payment-method-list td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Header Styles */
+.payment-method-list th {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* Actions Column */
+.payment-method-list .actions {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.payment-method-list .btn-edit,
+.payment-method-list .btn-delete {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .payment-method-list {
+        padding: 15px;
+    }
+
+    .payment-method-list th,
+    .payment-method-list td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .payment-method-list .btn-add {
+        font-size: 0.9rem;
+    }
+
+    .payment-method-list .btn-edit,
+    .payment-method-list .btn-delete {
+        font-size: 0.8rem;
+    }
+}
+
+/* Loading and Error States */
+.payment-method-list .error-message {
+    color: var(--dark-text-color);
+    padding: 15px;
+    border: 1px solid var(--background-color);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: var(--primary-color);
+}

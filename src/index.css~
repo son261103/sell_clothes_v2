@@ -1,0 +1,84 @@
+/* Root variables */
+:root {
+    /* Light mode */
+    --primary-color: #ffb3c6;
+    --primary-color-rgb: 255, 179, 198;
+    --background-color: #ffffff;
+    --text-color: #343434;
+
+    /* Dark mode */
+    --dark-primary-color: #ffb3c6;
+    --dark-primary-color-rgb: 255, 179, 198;
+    --dark-background-color: #343434;
+    --dark-text-color: #ffffff;
+
+    /* Scrollbar width to prevent layout shift */
+    --scrollbar-width: 6px;
+}
+
+/* Dark mode class */
+.dark-mode {
+    --primary-color: var(--dark-primary-color);
+    --background-color: var(--dark-background-color);
+    --text-color: var(--dark-text-color);
+}
+
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure consistent scrollbar presence */
+html {
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    font-size: 100%;
+    line-height: 1.5;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Global scrollbar styles */
+::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+    background: var(--dark-primary-color);
+}
+
+/* Firefox scrollbar styles */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+.dark-mode * {
+    scrollbar-color: var(--dark-primary-color) transparent;
+}
+
+.flex-column {
+    padding: 0;
+}

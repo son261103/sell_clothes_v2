@@ -1,0 +1,212 @@
+/* Admin Order Item List Styles */
+.order-item-list {
+    max-width: 100%;
+    background-color: var(--background-color);
+    border: 1px solid #FFB3C6FF;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: all 0.3s ease;
+    overflow-x: auto;
+}
+
+/* Heading style */
+.order-item-list h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Order Summary Section */
+.order-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(255, 179, 198, 0.1);
+    border-radius: 6px;
+}
+
+.summary-item {
+    display: flex;
+    gap: 10px;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.summary-item span:last-child {
+    font-weight: bold;
+}
+
+/* Button to add a new order item */
+.order-item-list .btn-add {
+    background-color: var(--primary-color);
+    color: var(--dark-text-color);
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Table styles */
+.order-item-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+    table-layout: fixed;
+}
+
+.order-item-list th,
+.order-item-list td {
+    padding: 12px;
+    text-align: left;
+    font-size: 1rem;
+    border: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+/* Cell Content Handling */
+.order-item-list td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Header Styles */
+.order-item-list th {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* Action buttons in the table */
+.order-item-list .actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.btn-edit,
+.btn-delete {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-edit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Footer Styles */
+.order-item-list tfoot {
+    font-weight: bold;
+}
+
+.total-label {
+    text-align: right;
+    color: var(--primary-color);
+}
+
+.total-amount {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+/* No items message */
+.no-items {
+    text-align: center;
+    padding: 20px;
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn-back {
+    background-color: var(--primary-color);
+    color: var(--dark-text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Error message */
+.error-message {
+    color: #f44336;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(244, 67, 54, 0.1);
+    border-radius: 4px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .order-item-list {
+        padding: 15px;
+    }
+
+    .order-item-list th,
+    .order-item-list td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .summary-item {
+        font-size: 1rem;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+
+    .order-item-list .actions {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .order-summary {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .order-item-list h2 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,84 @@
+import { createSelector } from '@reduxjs/toolkit';
+import { RootState } from '../../index';
+import { CategoryState } from './categorySlice.types';
+import { CategoryDTO } from '../../../types/category.types';
+
+// Base Selector
+const selectCategoryState = (state: RootState): CategoryState => state.category;
+
+// Categories Selectors
+export const selectAllCategories = createSelector(
+    [selectCategoryState],
+    (categoryState) => categoryState.categories
+);
+
+export const selectParentCategories = createSelector(
+    [selectCategoryState],
+    (categoryState) => categoryState.parentCategories
+);
+
+export const selectChildCategories = createSelector(
+    [selectCategoryState],
+    (categoryState) => categoryState.childCategories
+);
+
+// Specific Category Selectors
+export const selectCategoryById = (categoryId: number) =>
+    createSelector(
+        [selectCategoryState],
+        (categoryState) =>
+            categoryState.categories.find(
+                (category: CategoryDTO) => category.categoryId === categoryId
+            )
+    );
+
+export const selectChildCategoriesByParentId = (parentId: number) =>
+    createSelector(
+        [selectCategoryState],
+        (categoryState) =>
+            categoryState.categories.filter(
+                (category: CategoryDTO) => category.parentCategoryId === parentId
+            )
+    );
+
+// Selected Category
+export const selectSelectedCategory = createSelector(
+    [selectCategoryState],
+    (categoryState) => categoryState.selectedCategory
+);
+
+// Loading and Error States
+export const selectCategoryLoading = createSelector(
+    [selectCategoryState],
+    (categoryState) => categoryState.loading
+);
+
+export const selectCategoryError = createSelector(
+    [selectCategoryState],
+    (categoryState) => categoryState.error
+);
+
+// Keyword Search
+export const selectCategoriesByKeyword = (keyword: string) =>
+    createSelector(
+        [selectCategoryState],
+        (categoryState) =>
+            categoryState.categories.filter((category: CategoryDTO) =>
+                category.categoryName.toLowerCase().includes(keyword.toLowerCase())
+            )
+    );
+
+// Complex Selectors
+export const selectCategoryStatus = createSelector(
+    [selectCategoryLoading, selectCategoryError],
+    (loading, error) => ({ loading, error })
+);
+
+export const selectCategoryDetails = createSelector(
+    [selectAllCategories, selectParentCategories, selectChildCategories],
+    (categories, parentCategories, childCategories) => ({
+        categories,
+        parentCategories,
+        childCategories
+    })
+);

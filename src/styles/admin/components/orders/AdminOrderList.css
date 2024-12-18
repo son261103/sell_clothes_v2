@@ -1,0 +1,257 @@
+.order-list {
+    max-width: 100%;
+    background-color: var(--background-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Heading style */
+.order-list h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Table styles */
+.order-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+}
+
+.order-list th,
+.order-list td {
+    padding: 12px;
+    text-align: left;
+    font-size: 1rem;
+    border: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.order-list th {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.order-list td {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Action buttons in the table */
+.order-list td .actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Link button style */
+.order-list td .actions a {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Edit Button Style */
+.actions .btn-edit, .actions .btn-delete, .btn-add, .actions .btn-view {
+    background-color: var(--primary-color);
+    color: var(--dark-text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-flex;
+}
+
+.actions .btn-delete {
+    margin-left: 10px;
+}
+
+.btn-add {
+    margin-bottom: 10px !important;
+}
+
+/* New styles for order summary */
+.order-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.summary-card {
+    background-color: var(--background-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 15px;
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.summary-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Status badge styles */
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.status-pending {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.status-processing {
+    background-color: #1e90ff;
+    color: white;
+}
+
+.status-shipped {
+    background-color: #32cd32;
+    color: white;
+}
+
+.status-delivered {
+    background-color: #008000;
+    color: white;
+}
+
+.status-cancelled {
+    background-color: #ff0000;
+    color: white;
+}
+
+/* Status actions container */
+.status-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Status select dropdown */
+.status-select {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 0.9em;
+    max-width: 120px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.status-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+}
+
+.status-select:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Status counts in summary card */
+.summary-card > .status-counts {
+    display: flex !important;
+    flex-direction: column;
+    font-size: 0.9em;
+}
+
+.status-counts p {
+    display: flex !important;
+    flex-direction: column;
+    font-size: 0.9em;
+    margin: 0;
+    padding: 2px 0;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: var(--primary-color);
+    color: var(--dark-text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination .page-info {
+    margin: 0 10px;
+    color: var(--text-color);
+}
+
+/* Loading spinner and error message styles */
+.loading-spinner, .error-message, .no-orders {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-color);
+}
+
+/* Action bar styles */
+.action-bar {
+    margin-bottom: 20px;
+}
+
+/* Table container for responsive layout */
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .order-summary {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .summary-card {
+        margin: 5px 0;
+    }
+
+    .status-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .status-select {
+        max-width: 100%;
+    }
+}
